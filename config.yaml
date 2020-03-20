@@ -1685,6 +1685,7 @@ Rule:
 - DOMAIN-SUFFIX,mzstatic.com,Apple
 - DOMAIN,www-cdn.icloud.com.akadns.net,Apple
 - DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,v2ex.com,DIRECT
 - IP-CIDR,17.0.0.0/8,Apple,no-resolve
 
 # Local Area Network
