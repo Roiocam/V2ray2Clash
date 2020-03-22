@@ -187,15 +187,15 @@ Proxy:
 Proxy Group:
 
 # url-test 通过指定的 URL 测试并选择延迟最低的节点
-- name: "UrlTest"
-  type: url-test
-  proxies:
-    - "1"
-    - "2"
-    - "3"
-    - "4"
-  url: 'http://www.gstatic.com/generate_204'
-  interval: 300
+#- name: "UrlTest"
+#  type: url-test
+#  proxies:
+#    - "1"
+#    - "2"
+#    - "3"
+#    - "4"
+#  url: 'http://www.gstatic.com/generate_204'
+#  interval: 300
 
 # fallback 通过指定的 URL 测试并选择可用的节点，当 1 故障不可用时自动切换到 2 以此类推
 # - name: "Fallback"
@@ -223,7 +223,7 @@ Proxy Group:
 - name: "PROXY"
   type: select
   proxies:
-    - "UrlTest"
+#    - "UrlTest"
     - "1"
     - "2"
     - "3"
