@@ -20,10 +20,10 @@ mode: Rule
 
 # 设置日志等级 (默认为 info)
 # info / warning / error / debug / silent
-log-level: info
+log-level: silent
 
 # RESTful API for clash
-external-controller: 127.0.0.1:9090
+external-controller: '0.0.0.0:9090'
 
 # you can put the static web resource (such as clash-dashboard) to a directory, and clash would serve in `${API}/ui`
 # input is a relative path to the configuration directory or an absolute path
@@ -55,37 +55,10 @@ experimental:
 #   nameserver:
 #    - 119.29.29.29
 #    - 223.5.5.5
-
-# Clash for Windows
-cfw-bypass:
-  - qq.com
-  - music.163.com
-  - '*.music.126.net'
-  - localhost
-  - 127.*
-  - 10.*
-  - 172.16.*
-  - 172.17.*
-  - 172.18.*
-  - 172.19.*
-  - 172.20.*
-  - 172.21.*
-  - 172.22.*
-  - 172.23.*
-  - 172.24.*
-  - 172.25.*
-  - 172.26.*
-  - 172.27.*
-  - 172.28.*
-  - 172.29.*
-  - 172.30.*
-  - 172.31.*
-  - 192.168.*
-  - <local>
-cfw-latency-timeout: 5000
+secret: ''
 
 # 代理节点
-Proxy:
+proxies:
 # 更多协议配置示例：https://github.com/Dreamacro/clash/blob/master/README.md
 
 # Shadowsocks 支持的加密方式:
@@ -184,7 +157,7 @@ Proxy:
 #     # host: bing.com
 
 # 代理组策略
-Proxy Group:
+proxy-groups:
 
 # url-test 通过指定的 URL 测试并选择延迟最低的节点
 #- name: "UrlTest"
@@ -266,7 +239,7 @@ Proxy Group:
     - "DIRECT"
 
 # 规则
-Rule:
+rules:
 # Unbreak
 # > Google
 - DOMAIN-SUFFIX,googletraveladservices.com,DIRECT
