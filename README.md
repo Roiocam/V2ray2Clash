@@ -6,9 +6,12 @@
      2. user_path=用户~的路径[cd ~  -> pwd 查看]
      3. net_config=规则策略.
 #### 使用说明:
-     1. 安装python : sudo pacman -S python [Arch]
+     1. 安装python : 
+          - [Arch]: sudo pacman -S python 
+          - [Ubuntu]: sudo apt install python3 
+          - [Centos]: sudo yum install python3
      2. 填写订阅地址和用户路径
-     3. python 文件路径/v2ray.py
+     3. 执行命令 (python3 ./v2ray.py)
 #### Linux自动化更新订阅:
      - 输入crontab -e编辑定时任务
      - 模板: [cron表达式] [python路径] [脚本路径] > [输出日志路径]    
