@@ -12,8 +12,8 @@
 
 #属性
 headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36"}
-url = '订阅地址'
-user_path = '用户~目录'
+url = 'https://dy.wmyun.men/link/LET56VNfZlrUwKtg?mu=2'
+user_path = '/home/qianxing/'
 net_config = 'https://raw.githubusercontent.com/Roiocam/V2ray2Clash/master/config.yaml'
 
 #V2ray to Clash
@@ -43,12 +43,11 @@ def get_proxies(url):
     vmess_raw = base64.b64decode(raw)
     vmess_list = vmess_raw.splitlines()
     log('已获取'+str(len(vmess_list))+'个节点')
-    #解析vmess链接为json
+    #解析vmess链接
     for item in vmess_list:
         b64_proxy = item.decode('utf-8')[8:]
         proxy_str = base64.b64decode(b64_proxy).decode('utf-8')
-        proxy = json.loads(proxy_str)
-        proxies.append(proxy)
+        proxies.append(proxy_str)
     return proxies
 #转换成Clash对象
 def translate_proxy(arr):
@@ -57,7 +56,8 @@ def translate_proxy(arr):
         'proxy_list':[],
         'proxy_names':[]
     }
-    for item in arr:
+    for temp in arr:
+        item = json.loads(temp)
         if None == item.get('tls') :
             continue
         obj = {
@@ -114,9 +114,9 @@ def add_proxies_to_config(data,config):
     for group in config['proxy-groups']:
         if group['proxies'] is None:
             group['proxies'] = data['proxy_names']
-        replace  = [False for proxy in group['proxies'] if proxy in placeholder]
-        if replace:
-            group['proxies'] = [proxy for proxy in group['proxies'] if proxy not in placeholder]
+        elif 'DIRECT' == group['proxies'][0]:
+            1==1 # nothing to do
+        else:
             group['proxies'].extend(data['proxy_names'])
     return config
 #保存配置文件
