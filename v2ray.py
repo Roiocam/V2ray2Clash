@@ -128,6 +128,8 @@ def save_config(user_path,config_data):
     log('成功更新:'+str(lenth)+'个节点')
 
 #程序入口
+reload(sys)
+sys.setdefaultencoding('utf-8')
 config_raw = get_github_config(user_path)
 proxy_raw = get_proxies(url)
 proxy = translate_proxy(proxy_raw)
